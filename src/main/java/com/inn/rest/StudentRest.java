@@ -25,7 +25,6 @@ public class StudentRest {
 		return ResponseEntity.ok(newStudent.toString());
 	}
 	
-	// hello this is commonet
 	@GetMapping("/getStudentByid")
 	public ResponseEntity<String> getStudent(@RequestParam Integer id){
 		Student student=service.getbyId(id);
@@ -33,5 +32,11 @@ public class StudentRest {
 			return  (ResponseEntity<String>) ResponseEntity.notFound();
 		else
 		return ResponseEntity.ok(student.toString());
+	}
+	
+	@GetMapping("/deleteByid")
+	public ResponseEntity<String> deleteByid(@RequestParam Integer id){
+		  String s=service.deletebyId(id);
+		  return ResponseEntity.ok(s);
 	}
 }
